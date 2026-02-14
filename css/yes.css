@@ -1,5 +1,5 @@
 :root{
-  --bg1: #ffd6cd;     /* основной фон */
+  --bg1: #ffd6cd;     
   --bg2: #ffd6d6;     /* чуть розовее */
   --card: #ffffffcc;  /* полупрозрачная карточка */
   --text: #000;       /* у тебя на первой чёрный */
@@ -16,8 +16,6 @@ body{
   justify-content:center;
   align-items:center;
   overflow:hidden;
-
-  font-family:'Nunito', sans-serif;
   color: var(--text);
 
   background:
@@ -26,8 +24,6 @@ body{
   background-color: var(--bg1);
 }
 
-
-/* декоративная записка */
 .note{
   position:fixed;
   top:18px;
@@ -53,7 +49,6 @@ body{
 .card{
   width:min(520px, 92vw);
       background: #fff5f5;
-  /* background:var(--card); */
   backdrop-filter: blur(8px);
   border-radius:28px;
   padding:26px 22px 22px;
@@ -76,15 +71,11 @@ body{
   box-shadow:0 10px 20px rgba(0,0,0,.08);
 }
 
-
-
 .gif{
   width:min(280px, 75vw);
   height:auto;
   display:block;
   margin:10px auto 10px;
-  /* лёгкое “дыхание” чтобы выглядело живее */
-  /* animation: floaty 2.6s ease-in-out infinite; */
   filter: drop-shadow(0 14px 18px rgba(251,111,146,.25));
 }
 
@@ -156,6 +147,7 @@ body{
 .hearts span:nth-child(10){ top:70%; right:8%; animation-delay:2s; }
 .hearts span:nth-child(11){ bottom:40%; left:50%; animation-delay:3s; }
 .hearts span:nth-child(12){ top:5%; right:45%; animation-delay:4s; }
+.hearts span:nth-child(13){ top:15%; right:15%; animation-delay:1s; }
 
 @keyframes drift{
   0%,100%{ transform: translateY(0); }

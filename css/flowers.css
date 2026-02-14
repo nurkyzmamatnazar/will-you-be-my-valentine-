@@ -16,18 +16,13 @@ body{
   justify-content:center;
   align-items:center;
   overflow:hidden;
-
-  font-family:'Nunito', sans-serif;
   color: var(--text);
-
   background:
     radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35) 0 3px, transparent 4px) 0 0/60px 60px,
     var(--bg2);
   background-color: var(--bg1);
 }
 
-
-/* декоративная записка */
 .note{
   position:fixed;
   top:18px;
@@ -50,7 +45,6 @@ body{
   color:#444;
 }
 
-
 .btn{
   text-decoration:none;
   padding:10px 16px;
@@ -66,7 +60,6 @@ body{
   50%{ transform: translateY(-8px) scale(1.02); }
 }
 
-/* сердечки по углам */
 .hearts span{
   position:fixed;
   font-size:22px;
@@ -93,17 +86,11 @@ body{
   50%{ transform: translateY(-14px); }
 }
 
-/* paper background */
 .flowers-page{
   border-radius: 22px;
-  /* background:
-    radial-gradient(900px 420px at 20% 10%, rgba(255,255,255,.55), transparent 60%),
-    radial-gradient(700px 380px at 90% 40%, rgba(255,255,255,.45), transparent 55%),
-    linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75)); */
   position: relative;
   overflow: hidden;
 }
-
 
 .flowers-title{
   font-family: "Patrick Hand", cursive;
