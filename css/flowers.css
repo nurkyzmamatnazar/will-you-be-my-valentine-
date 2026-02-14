@@ -439,3 +439,35 @@ body{
 .envelope.is-open::after{
   display:none;
 }
+
+/* контейнер кнопки */
+.back-btn-wrap{
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+}
+
+/* сама кнопка */
+.back-btn{
+  font-family: "Indie Flower", cursive;
+
+
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 18px;
+  background: #ffffffdd;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  transition: .25s ease;
+  /* background: linear-gradient(180deg, #fff, #ffeef3); */
+  color: #fb6f92;
+}
+
+
+.back-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(251,111,146,.25);
+   /* transform: translateY(-3px) scale(1.05); */
+}
+
