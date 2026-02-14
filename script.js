@@ -64,31 +64,4 @@ yesBtn.addEventListener("click", () => {
   });
 
 
-  const modal = document.getElementById("letterModal");
-const openLetter = document.getElementById("openLetter");
-const closeLetter = document.getElementById("closeLetter");
-const letterResult = document.getElementById("letterResult");
-
-openLetter?.addEventListener("click", () => {
-  modal.classList.add("show");
-  modal.setAttribute("aria-hidden", "false");
-});
-
-closeLetter?.addEventListener("click", () => {
-  modal.classList.remove("show");
-  modal.setAttribute("aria-hidden", "true");
-});
-
-modal?.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("show");
-    modal.setAttribute("aria-hidden", "true");
-  }
-});
-
-document.querySelectorAll(".letter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    letterResult.textContent = btn.dataset.msg;
-  });
-});
-
+ 

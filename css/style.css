@@ -102,6 +102,11 @@ button {
 }
 
 .no-btn {
-  background-color: #e0e0e0;
-  color: #333;
+   text-decoration:none;
+  padding:10px 16px;
+  border-radius:16px;
+  background:#fff;
+  color:#444;
+  box-shadow:0 10px 18px rgba(0,0,0,.08);
+  transition:.25s ease;
 }

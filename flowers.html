@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yay 💗</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/flowers.css">
+</head>
+
+<body>
+  <div class="note" aria-hidden="true">
+    <div class="note-text">14<br>FEB</div>
+  </div>
+
+  <section class="flowers-page" id="flowersPage">
+    <h2 class="flowers-title">Flowers for you</h2>
+    <!-- <p class="flowers-subtitle">click the letter for a surprise</p> -->
+
+    <div class="bouquet">
+
+      <!-- ✅ сюда будут добавляться 6 PNG по очереди -->
+      <div class="rose-layer" id="roseLayer" aria-hidden="true"></div>
+
+      <div class="vase" aria-hidden="true">
+        <!-- <div class="vase-text">text<br>text</div> -->
+      </div>
+
+      <button class="envelope" id="openLetter" aria-label="Open letter">💌</button>
+    </div>
+
+    <!-- Модалка-письмо -->
+    <div class="letter-modal" id="letterModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="letter-card">
+        <button class="letter-close" id="closeLetter" aria-label="Close">✕</button>
+
+        <h3>Письмо для моей любив</h3>
+        <p>С днем влюбленных солнце мое
+          Пишу это письмо, лежа на диване в квартире, в городе, в стране, на материке, в котором тебя нет… и от этого так грустно. Так странно просыпаться и понимать что не увижу сегодня твои глаза, не почувствую твое тепло. Вокруг так много всего, но чего-то не хватает, в этом городе везде где бы я не была как будто души нет пустота, думаю это потому что моего мавыша нет рядом.
+
+          Я так скучаю по тебе. Скучаю по твоему запаху, по твоим рукам, за которые я держалась, когда мы гуляли. Скучаю по тому, как мы шли за кокиколой - и больше ничего в мире не было нужно. В этом мире нет ничего приятнее чем скин ту скин с тобой плавду говолю. Я счастлива любить тебя и быть любимой тобой.
+
+          Я люблю тебя, мавыш💗
+        </p>
+
+        <!-- <div class="letters">
+          <button class="letter-btn" data-msg="Ты моя радость 🐰💞">A</button>
+          <button class="letter-btn" data-msg="Думаю о тебе каждый день 🌙">B</button>
+          <button class="letter-btn" data-msg="Хочу с тобой танцевать 💃🕺">C</button>
+        </div> -->
+
+        <!-- <p class="letter-result" id="letterResult">Нажми на букву ✉️</p> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- сердечки -->
+  <div class="hearts" aria-hidden="true">
+    <span>💗</span><span>💖</span><span>💘</span><span>💕</span>
+    <span>💗</span><span>💖</span><span>💘</span><span>💕</span>
+    <span>💗</span><span>💖</span><span>💘</span><span>💕</span>
+  </div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // ===== modal letter =====
+    const modal = document.getElementById("letterModal");
+    const openLetter = document.getElementById("openLetter");
+    const closeLetter = document.getElementById("closeLetter");
+    const letterResult = document.getElementById("letterResult");
+
+    if (openLetter && modal) {
+      openLetter.addEventListener("click", () => {
+        openLetter.classList.add("is-open");   // ✅ stop hint
+        modal.classList.remove("show");
+        void modal.offsetWidth;
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+      });
+    }
+
+    if (closeLetter && modal) {
+      closeLetter.addEventListener("click", () => {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+        openLetter.classList.remove("is-open"); // ✅ hint again
+      });
+    }
+
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.remove("show");
+          modal.setAttribute("aria-hidden", "true");
+        }
+      });
+    }
+
+    document.querySelectorAll(".letter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (letterResult) letterResult.textContent = btn.dataset.msg || "";
+      });
+    });
+
+    // ===== flowers appear one by one (6 png) =====
+    const roseLayer = document.getElementById("roseLayer");
+
+    // ✅ ВАЖНО: поменяй имена файлов под свои (в папке images)
+    const flowers = [
+      "image/m.png",
+      "image/e.png",
+      "image/e.png",
+      "image/r.png",
+      "image/i.png",
+      "image/m.png"
+    ];
+
+    // позиции (подгонишь если надо — но уже красиво “букетом”)
+    const layout = [
+      { left: "50%", top: "15px", width: "130px", z: 0, rotate: 0 },
+      { left: "30%", top: "15px", width: "140px", z: 2, rotate: -15 },
+      { left: "68%", top: "10px", width: "140px", z: 2, rotate: 35 },
+      { left: "44%", top: "15px", width: "170px", z: 3, rotate: -15 },
+      { left: "52%", top: "10px", width: "140px", z: 2, rotate: 15 },
+      { left: "45%", top: "5px", width: "140px", z: 3, rotate: -5 }
+    ];
+
+    if (roseLayer) {
+      let i = 0;
+
+      const timer = setInterval(() => {
+        if (i >= flowers.length) {
+          clearInterval(timer);
+          return;
+        }
+
+        const img = document.createElement("img");
+        img.src = flowers[i];
+        img.alt = "";
+
+        const p = layout[i] || layout[layout.length - 1];
+        img.style.left = p.left;
+        img.style.top = p.top;
+        img.style.width = p.width;
+        img.style.zIndex = String(p.z);
+        img.style.transform = `translateX(-50%) rotate(${p.rotate}deg)`;
+
+        img.onload = () => img.classList.add("show");
+        img.onerror = () => {
+          // если файл не найден — просто пропускаем, чтобы не ломалось
+          i++;
+        };
+
+        roseLayer.appendChild(img);
+        i++;
+      }, 650);
+    }
+  });
+  </script>
+</body>
+</html>
