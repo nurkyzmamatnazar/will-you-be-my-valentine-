@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yay 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/yes.css">
+</head>
+
+<body>
+  <div class="note" aria-hidden="true">
+    <div class="note-text">14<br>FEB</div>
+  </div>
+
+  <main class="card">
+    <div class="tape" aria-hidden="true"></div>
+    <img class="gif" src="image/poks.GIF" alt="Покаччо танцует">
+
+    <h1 class="title">УВААА!💖</h1>
+    <p class="subtitle">Ти фто хочешь быть моей валентинкой фтоли</p>
+    <div class="actions">
+      <a class="btn" href="index.html">← Назад</a>
+      <!-- потом сюда поставим “Continue” для следующей страницы (ваза/письмо) -->
+      <!-- <a class="btn primary" href="flowers.html">Дальше →</a> -->
+    </div>
+  </main>
+
+  <!-- сердечки (по желанию) -->
+  <div class="hearts" aria-hidden="true">
+    <span>💗</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>💕</span>
+
+    <span>💗</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>💕</span>
+
+    <span>💗</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>💕</span>
+  </div>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script>
+  const confettiWrap = document.getElementById("confetti");
+
+  function popConfetti(count = 120) {
+    confettiWrap.innerHTML = "";
+
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement("span");
+      piece.className = "confetti-piece";
+
+      // случайная позиция по ширине
+      piece.style.left = Math.random() * 100 + "vw";
+
+      // случайная задержка и скорость
+      piece.style.animationDelay = (Math.random() * 0.6) + "s";
+      piece.style.animationDuration = (2.5 + Math.random() * 1.8) + "s";
+
+      // размеры
+      const w = 6 + Math.random() * 8;
+      const h = 10 + Math.random() * 14;
+      piece.style.width = w + "px";
+      piece.style.height = h + "px";
+
+      // разные формы
+      if (Math.random() > 0.65) piece.style.borderRadius = "50%";
+      else piece.style.borderRadius = (2 + Math.random() * 6) + "px";
+
+      // цвета под твой стиль
+      const colors = ["#ff4f7a", "#ff6f91","#fb6f92","#ff8fab","#ffffff"];
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+      // чуть-чуть прозрачности
+      piece.style.opacity = (0.55 + Math.random() * 0.45).toFixed(2);
+
+      confettiWrap.appendChild(piece);
+    }
+
+    // убрать конфетти через несколько секунд, чтобы не мешало
+    setTimeout(() => confettiWrap.innerHTML = "", 6000);
+  }
+
+  // запускаем при открытии
+  popConfetti(140);
+</script>
+</body>
+</html>

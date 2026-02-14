@@ -1,0 +1,164 @@
+/* paper background */
+.flowers-page{
+  padding: 22px 18px 18px;
+  border-radius: 22px;
+  background:
+    radial-gradient(900px 420px at 20% 10%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(700px 380px at 90% 40%, rgba(255,255,255,.45), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.75));
+  position: relative;
+  overflow: hidden;
+}
+
+/* fake “paper texture” */
+.flowers-page::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.015), rgba(0,0,0,.015) 1px, transparent 2px, transparent 6px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.01), rgba(0,0,0,.01) 1px, transparent 2px, transparent 8px);
+  opacity:.6;
+  pointer-events:none;
+}
+
+.flowers-title{
+  font-family: "Patrick Hand", cursive;
+  font-size: 46px;
+  margin: 6px 0 2px;
+  color: #7a2b3a;
+  position: relative;
+}
+
+.flowers-subtitle{
+  margin: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .65;
+  position: relative;
+}
+
+.bouquet{
+  position: relative;
+  height: 360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin: 10px 0 6px;
+}
+
+.roses{
+  position:absolute;
+  top: 22px;
+  width: 260px;
+  height: 170px;
+}
+
+.rose{
+  position:absolute;
+  font-size: 72px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.08));
+  animation: roseFloat 2.6s ease-in-out infinite;
+}
+.r1{ left: 92px; top: 0px; }
+.r2{ left: 28px; top: 64px; font-size: 62px; animation-delay:.2s; }
+.r3{ right: 28px; top: 64px; font-size: 62px; animation-delay:.35s; }
+
+@keyframes roseFloat{
+  0%,100%{ transform: translateY(0) rotate(-2deg); }
+  50%{ transform: translateY(-8px) rotate(3deg); }
+}
+
+/* vase */
+.vase{
+  position:absolute;
+  bottom: 40px;
+  width: 180px;
+  height: 190px;
+  background: #b70d24;
+  border-radius: 22px 22px 48px 48px;
+  clip-path: polygon(25% 0, 75% 0, 88% 18%, 78% 100%, 22% 100%, 12% 18%);
+  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+}
+
+.vase-text{
+  position:absolute;
+  inset: 60px 18px auto 18px;
+  color: rgba(255,255,255,.92);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .06em;
+  transform: rotate(-6deg);
+}
+
+/* envelope */
+.envelope{
+  position:absolute;
+  right: 60px;
+  bottom: 36px;
+  font-size: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,.14));
+  transition: transform .25s ease;
+}
+.envelope:hover{ transform: rotate(10deg) scale(1.08); }
+
+/* modal */
+.letter-modal{
+  position: fixed;
+  inset: 0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.35);
+  padding: 18px;
+  z-index: 50;
+}
+
+.letter-modal.show{ display:flex; }
+
+.letter-card{
+  width: min(520px, 92vw);
+  background: rgba(255,255,255,.92);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.18);
+  position: relative;
+}
+
+.letter-close{
+  position:absolute;
+  top: 10px; right: 10px;
+  width: 36px; height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(0,0,0,.06);
+  cursor:pointer;
+}
+
+.letters{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  margin: 12px 0 10px;
+}
+
+.letter-btn{
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  border: none;
+  cursor:pointer;
+  font-weight: 900;
+  background: rgba(183,13,36,.12);
+  transition: .2s ease;
+}
+.letter-btn:hover{ transform: translateY(-2px) scale(1.05); }
+
+.letter-result{
+  text-align:center;
+  margin: 0;
+  opacity: .9;
+}

@@ -1,0 +1,107 @@
+body {
+      background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35) 0 3px, transparent 4px) 0 0/60px 60px,
+    #ffd6d6;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffd6cd; /* нежный розово-бежевый */
+  overflow: hidden;
+}
+
+/* декоративная записка */
+.note{
+  position:fixed;
+  top:18px;
+  left:18px;
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform:rotate(-8deg);
+}
+.note-text{
+  font-family:'Patrick Hand', cursive;
+  text-align:center;
+  line-height:1;
+  font-size:18px;
+  color:#444;
+}
+
+.container {
+  text-align: center;
+}
+
+.character {
+  width: 200px;
+ animation: sway 2.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes sway {
+  0%   { transform: rotate(-3deg); }
+  50%  { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
+}
+
+
+.title{
+font-family: "Indie Flower", cursive;
+  margin: -30px 0 6px;
+  font-size: 62px;
+  letter-spacing: .5px;
+  color: #000;
+}
+
+.subtitle{
+    font-family: "Indie Flower", cursive;
+  margin: 0 0 15px 0 ;
+   line-height: 1.25;
+  /* font-size: clamp(30px, 4vw, 50px); */
+  font-size: 56px;
+  color: #fb6f92;
+  font-weight: 600;
+}
+
+.buttons {
+  display: flex;              /* вот здесь flex */
+  justify-content: center;    /* центрируем кнопки */
+  align-items: center;
+  gap: 14px;                  /* расстояние между кнопками */
+  position: relative;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  margin: 0; /* убираем margin, gap уже есть */
+}
+
+.yes-btn {
+  background-color: #ff8fab;
+  color: white;
+   box-shadow: 0 10px 20px rgba(255, 111, 146, 0.25);
+}
+
+.yes-btn:hover {
+  background-color: #fb6f92;
+  transform: scale(1.1);
+  box-shadow:
+    0 12px 26px rgba(255, 111, 146, 0.35),
+    0 0 18px rgba(255, 111, 146, 0.65);
+}
+
+.no-btn {
+  background-color: #e0e0e0;
+  color: #333;
+}
